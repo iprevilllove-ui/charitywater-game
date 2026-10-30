@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Well Builder — Clean Water Adventure</title>
+<style>
+:root{--navy:#123047;--blue:#20a7d7;--aqua:#bdeef2;--gold:#f3c44e;--cream:#fffaf0;--green:#4f9b76;--ink:#173344;--muted:#607684;--card:#fff;--line:#dce9ec}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#e8f8fb,#fffaf0 65%);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button{font:inherit;cursor:pointer;border:0;border-radius:13px;padding:11px 15px;font-weight:750;transition:transform .12s,filter .12s}button:hover{filter:brightness(.97);transform:translateY(-1px)}button:focus-visible{outline:3px solid #e4a900;outline-offset:2px}.primary{background:var(--blue);color:white}.secondary{background:#e8f5f8;color:var(--navy);border:1px solid #cde7ed}.gold{background:var(--gold);color:#49370a}.danger{background:#fff0ef;color:#9e3b37;border:1px solid #f1cfcb}.wrap{max-width:1180px;margin:auto;padding:22px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}.brand{display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:16px;background:var(--blue);display:grid;place-items:center;color:white;font-size:27px;box-shadow:0 6px 0 #1688b1}.eyebrow{text-transform:uppercase;letter-spacing:.13em;font-size:11px;font-weight:900;color:var(--muted)}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(25px,4vw,38px);margin-bottom:2px;letter-spacing:-.04em}h2{font-size:22px;margin-bottom:8px}h3{font-size:16px;margin-bottom:7px}.subtitle{color:var(--muted);font-size:14px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}.stat,.panel{background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:20px;box-shadow:0 8px 24px #184c5d0b}.stat{padding:14px;display:flex;gap:10px;align-items:center}.stat-icon{font-size:24px}.stat strong{display:block;font-size:21px}.stat small{color:var(--muted);font-size:12px}.layout{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(280px,.9fr);gap:18px}.panel{padding:20px;margin-bottom:18px}.world{position:relative;overflow:hidden;min-height:275px;background:linear-gradient(#bcecf4 0 48%,#d8f0c5 48% 100%);border:1px solid #b4dfe6;border-radius:18px;padding:18px}.sun{position:absolute;right:30px;top:22px;width:50px;height:50px;border-radius:50%;background:#ffdc72;box-shadow:0 0 0 12px #ffdc7233}.cloud{position:absolute;right:100px;top:30px;font-size:32px;opacity:.85}.hill{position:absolute;bottom:0;width:70%;height:90px;border-radius:50% 50% 0 0;background:#8bca8d;left:-10%;}.hill.two{width:75%;height:70px;left:40%;background:#b1dda0}.scene{position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:space-between;min-height:235px;gap:10px}.scene-copy{max-width:56%;align-self:flex-start}.scene-copy h2{font-size:25px;max-width:320px}.scene-copy p{max-width:310px;font-size:14px;line-height:1.45}.well-art{font-size:90px;filter:drop-shadow(0 8px 0 #376f5a25);align-self:flex-end;margin:0 4% 12px 0}.progress-label{display:flex;justify-content:space-between;gap:10px;font-size:12px;color:var(--muted);margin:12px 0 7px}.bar{height:9px;border-radius:20px;background:#e8eff0;overflow:hidden}.bar span{display:block;height:100%;background:var(--blue);border-radius:20px;transition:width .2s}.mission{display:flex;gap:12px;align-items:flex-start;background:#f1fafb;border:1px solid #d7eff2;padding:14px;border-radius:15px;margin-top:14px}.mission .emoji{font-size:26px}.mission p{font-size:13px;color:var(--muted);margin:4px 0 0;line-height:1.45}.action-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:14px}.action-grid button{text-align:left;min-height:82px;background:#f7fbfc;border:1px solid var(--line);color:var(--ink)}.action-grid button span{display:block;font-size:24px;margin-bottom:5px}.action-grid button small{display:block;font-weight:500;color:var(--muted);margin-top:3px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}.pill{display:inline-flex;border-radius:999px;background:#edf7f8;padding:5px 9px;font-size:11px;font-weight:800;color:#2c7186}.stage-list{display:grid;gap:9px}.stage{display:flex;align-items:center;gap:11px;padding:12px;border:1px solid var(--line);border-radius:14px;background:white}.stage.active{border:2px solid var(--blue);background:#f1fbfd}.stage.locked{opacity:.56}.stage-icon{font-size:26px;width:38px;text-align:center}.stage-info{flex:1}.stage-info strong{display:block;font-size:14px}.stage-info small{color:var(--muted)}.stage button{padding:8px 10px;font-size:12px}.inventory{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.item{background:#f7fbfc;border:1px solid var(--line);border-radius:13px;text-align:center;padding:12px 6px}.item b{display:block;font-size:20px}.item small{font-size:11px;color:var(--muted)}.badges{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.badge-item{border:1px solid var(--line);border-radius:14px;padding:12px 5px;text-align:center;background:#fbfdfd}.badge-item .medal{font-size:27px;filter:grayscale(1);opacity:.35}.badge-item.earned{background:#fff9e7;border-color:#f0d98b}.badge-item.earned .medal{filter:none;opacity:1}.badge-item strong{display:block;font-size:11px;margin-top:5px}.badge-item small{font-size:10px;color:var(--muted)}.notice{font-size:12px;line-height:1.5;color:#4f6571;background:#f6fafb;border-radius:13px;padding:12px;border:1px solid var(--line)}.donate{background:#fff8e4;border-color:#f2df9d}.donate p{font-size:13px;line-height:1.5;color:#6d5b2b}.donate-actions{display:flex;gap:8px;flex-wrap:wrap}.footer{text-align:center;color:var(--muted);font-size:11px;padding:8px 0 25px}.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,120px);opacity:0;transition:.25s;background:var(--navy);color:white;padding:13px 18px;border-radius:14px;box-shadow:0 10px 30px #12304744;max-width:calc(100% - 30px);z-index:10;font-size:14px}.toast.show{transform:translate(-50%,0);opacity:1}.modal-back{position:fixed;inset:0;background:#0b2537aa;display:none;align-items:center;justify-content:center;padding:20px;z-index:20}.modal-back.open{display:flex}.modal{background:white;max-width:470px;width:100%;padding:24px;border-radius:22px;box-shadow:0 20px 70px #001c2c55}.modal p{line-height:1.55;color:var(--muted);font-size:14px}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}.hidden{display:none!important}@media(max-width:800px){.layout{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.top{align-items:flex-start}.top>.secondary{max-width:110px}.scene-copy{max-width:65%}.well-art{font-size:70px;margin-right:0}.panel{padding:16px}}@media(max-width:420px){.wrap{padding:12px}.stat{padding:11px}.scene-copy h2{font-size:21px}.world{padding:14px}.well-art{font-size:56px}.badges{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><div class="logo" aria-hidden="true">💧</div><div><div class="eyebrow">Clean water adventure</div><h1>Well Builder</h1><div class="subtitle">Plan a project. Build hope. Learn as you go.</div></div></div>
+    <button class="secondary" id="resetBtn" title="Start a new demo save">↻ Reset game</button>
+  </header>
+
+  <section class="stats" aria-label="Player stats">
+    <div class="stat"><div class="stat-icon">❤️</div><div><strong id="lives">5 / 5</strong><small>Lives</small></div></div>
+    <div class="stat"><div class="stat-icon">🔥</div><div><strong id="streak">0 days</strong><small>Daily streak</small></div></div>
+    <div class="stat"><div class="stat-icon">🪙</div><div><strong id="coins">0</strong><small>Adventure tokens</small></div></div>
+    <div class="stat"><div class="stat-icon">🏅</div><div><strong id="badgeCount">0 / 9</strong><small>Badges earned</small></div></div>
+  </section>
+
+  <div class="layout">
+    <main>
+      <section class="panel">
+        <div class="section-head"><div><div class="eyebrow">Your current mission</div><h2 id="stageTitle">Stage 1: The First Drop</h2></div><span class="pill" id="stagePill">BEGINNER</span></div>
+        <div class="world">
+          <div class="sun"></div><div class="cloud">☁️</div><div class="hill"></div><div class="hill two"></div>
+          <div class="scene">
+            <div class="scene-copy"><h2 id="sceneTitle">Every drop starts a journey.</h2><p id="sceneText">Gather supplies, solve challenges, and plan your first virtual well.</p><span class="pill" id="wellStatus">🚧 Site not built</span></div>
+            <div class="well-art" id="wellArt" aria-label="Well illustration">🧰</div>
+          </div>
+        </div>
+        <div class="progress-label"><span>Mission progress</span><strong id="progressText">0 / 3 tasks</strong></div><div class="bar"><span id="progressBar" style="width:0%"></span></div>
+        <div class="mission"><div class="emoji" id="missionEmoji">🧭</div><div><h3 id="missionTitle">Scout the location</h3><p id="missionDesc">Choose a suitable site and learn what a community water project needs.</p></div></div>
+        <div class="action-grid" id="actions">
+          <button data-action="scout"><span>🗺️ Scout location</span><small>Study the project site</small></button>
+          <button data-action="collect"><span>🧱 Collect supplies</span><small>Gather building materials</small></button>
+          <button data-action="quiz"><span>💡 Water knowledge</span><small>Answer a quick question</small></button>
+          <button data-action="build"><span>🛠️ Build the well</span><small>Use supplies to finish</small></button>
+        </div>
+      </section>
+      <section class="panel">
+        <div class="section-head"><div><div class="eyebrow">Journey map</div><h2>Explore new regions</h2></div><span class="pill" id="stageCount">1 / 4 unlocked</span></div>
+        <div class="stage-list" id="stageList"></div>
+      </section>
+    </main>
+
+    <aside>
+      <section class="panel">
+        <div class="section-head"><h2>🎒 Supply pack</h2><span class="pill">VIRTUAL</span></div>
+        <div class="inventory">
+          <div class="item"><b id="wood">0</b><small>🪵 Timber</small></div>
+          <div class="item"><b id="stone">0</b><small>🪨 Stone</small></div>
+          <div class="item"><b id="tools">0</b><small>🔧 Tools</small></div>
+        </div>
+        <p class="subtitle" style="margin:12px 0 0">Supplies are game items only. They have no cash value.</p>
+      </section>
+      <section class="panel">
+        <div class="section-head"><h2>🏆 Badge shelf</h2><span class="pill" id="badgePill">0 earned</span></div>
+        <div class="badges" id="badges"></div>
+      </section>
+      <section class="panel donate">
+        <div class="eyebrow">Real-world impact</div><h2>Support clean water 💙</h2>
+        <p>Playing this game does not fund or construct a real well. If you choose to donate, use charity: water's official website to learn about giving options.</p>
+        <div class="donate-actions"><button class="gold" id="donateBtn">Explore donation options ↗</button><button class="secondary" id="impactBtn">Impact information</button></div>
+      </section>
+      <section class="panel">
+        <h3>How to play</h3>
+        <div class="notice">Complete three tasks to finish a stage. Some wrong answers cost a life. Collect supplies before building. Keep a daily streak by checking in on separate calendar days. Your progress is saved in this browser on this device.</div>
+      </section>
+    </aside>
+  </div>
+  <div class="footer">Student game prototype · Not affiliated with or endorsed by charity: water · No donations are processed in this demo.</div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="modal-back" id="modalBack" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal"><div class="eyebrow" id="modalEyebrow">MISSION</div><h2 id="modalTitle">Choose your next action</h2><p id="modalBody"></p><div id="modalExtra"></div><div class="modal-actions" id="modalActions"></div></div>
+</div>
+
+<script>
+(() => {
+  const SAVE_KEY = "wellBuilderDemoSaveV1";
+  const stages = [
+    {name:"The First Drop",region:"Starter valley",level:"BEGINNER",icon:"💧",scene:"Every drop starts a journey.",desc:"Gather supplies, solve challenges, and plan your first virtual well.",tasks:3,need:{wood:2,stone:1,tools:1},badge:"First Drop"},
+    {name:"Village of Hope",region:"East Africa-inspired",level:"INTERMEDIATE",icon:"🏡",scene:"Plan with the community.",desc:"Make careful choices about resources, access, and long-term maintenance.",tasks:4,need:{wood:3,stone:2,tools:2},badge:"Community Builder"},
+    {name:"Water Across Regions",region:"South Asia-inspired",level:"ADVANCED",icon:"🌏",scene:"Every region has different needs.",desc:"Balance resources, learn about water access, and complete a more complex project.",tasks:4,need:{wood:4,stone:3,tools:2},badge:"Global Explorer"},
+    {name:"Clean Water Champion",region:"Final challenge",level:"CHAMPION",icon:"🌟",scene:"Bring your strategy together.",desc:"Complete the final project and review what makes water projects sustainable.",tasks:5,need:{wood:4,stone:4,tools:3},badge:"Clean Water Champion"}
+  ];
+  const badgeDefs = [
+    ["💧","First Drop","Finish Stage 1"],["🏡","Community Builder","Finish Stage 2"],["🌏","Global Explorer","Finish Stage 3"],["🌟","Water Champion","Finish Stage 4"],["🔥","On a Roll","Reach a 3-day streak"],["🔥","Streak Star","Reach a 7-day streak"],["🧠","Water Wise","Answer 3 quiz questions correctly"],["🧰","Resourceful","Collect supplies 5 times"],["🛠️","Master Builder","Build all 4 wells"]
+  ];
+  const fresh = () => ({stage:0,lives:5,maxLives:5,streak:0,lastCheckin:null,coins:0,wood:0,stone:0,tools:0,scouted:[],quizzes:[],built:[],completed:[],badges:[],collectCount:0,correctQuizzes:0,taskCounts:[0,0,0,0],lastActionDate:null});
+  let state = load();
+  let toastTimer;
+  function load(){try{const s=JSON.parse(localStorage.getItem(SAVE_KEY));if(s && typeof s.stage==="number")return {...fresh(),...s};}catch(e){}return fresh();}
+  function save(){try{localStorage.setItem(SAVE_KEY,JSON.stringify(state));}catch(e){}}
+  const $ = id => document.getElementById(id);
+  function today(){const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;}
+  function yesterday(){const d=new Date();d.setDate(d.getDate()-1);return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;}
+  function toast(msg){const el=$("toast");el.textContent=msg;el.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove("show"),2600);}
+  function modal(title,body,actions,eyebrow="MISSION",extra=""){ $("modalEyebrow").textContent=eyebrow;$("modalTitle").textContent=title;$("modalBody").textContent=body;$("modalExtra").innerHTML=extra;$("modalActions").innerHTML="";actions.forEach(a=>{const b=document.createElement("button");b.textContent=a.label;b.className=a.className||"secondary";b.onclick=()=>{closeModal();a.run&&a.run();};$("modalActions").appendChild(b);});$("modalBack").classList.add("open");}
+  function closeModal(){$("modalBack").classList.remove("open");}
+  function hasBadge(name){return state.badges.includes(name);}
+  function award(name){if(!hasBadge(name)){state.badges.push(name);toast("Badge earned: "+name+"! 🏅");}}
+  function refreshBadges(){
+    if(state.completed.includes(0))award("First Drop");
+    if(state.completed.includes(1))award("Community Builder");
+    if(state.completed.includes(2))award("Global Explorer");
+    if(state.completed.includes(3))award("Water Champion");
+    if(state.streak>=3)award("On a Roll");
+    if(state.streak>=7)award("Streak Star");
+    if(state.correctQuizzes>=3)award("Water Wise");
+    if(state.collectCount>=5)award("Resourceful");
+    if(state.built.length>=4)award("Master Builder");
+  }
+  function current(){return stages[state.stage];}
+  function countTasks(i){return Math.min(stages[i].tasks,state.taskCounts[i]||0);}
+  function render(){
+    const s=current();
+    $("lives").textContent=`${state.lives} / ${state.maxLives}`;
+    $("streak").textContent=`${state.streak} day${state.streak===1?"":"s"}`;
+    $("coins").textContent=state.coins;
+    $("badgeCount").textContent=`${state.badges.length} / ${badgeDefs.length}`;
+    $("badgePill").textContent=`${state.badges.length} earned`;
+    $("stageTitle").textContent=`Stage ${state.stage+1}: ${s.name}`;
+    $("stagePill").textContent=s.level;
+    $("sceneTitle").textContent=s.scene;$("sceneText").textContent=s.desc;
+    const built=state.built.includes(state.stage);
+    $("wellArt").textContent=built?"🪣":state.scouted.includes(state.stage)?"🕳️":"🧰";
+    $("wellStatus").textContent=built?"✅ Virtual well completed":state.scouted.includes(state.stage)?"📍 Site scouted":"🚧 Site not built";
+    $("progressText").textContent=`${countTasks(state.stage)} / ${s.tasks} tasks`;
+    $("progressBar").style.width=`${Math.min(100,countTasks(state.stage)/s.tasks*100)}%`;
+    $("wood").textContent=state.wood;$("stone").textContent=state.stone;$("tools").textContent=state.tools;
+    $("stageCount").textContent=`${state.completed.length} / 4 completed`;
+    $("stageList").innerHTML="";
+    stages.forEach((st,i)=>{
+      const unlocked=i===0||state.completed.includes(i-1)||state.completed.includes(i);
+      const row=document.createElement("div");row.className="stage"+(i===state.stage?" active":"")+(unlocked?"":" locked");
+      row.innerHTML=`<div class="stage-icon">${st.icon}</div><div class="stage-info"><strong>${i+1}. ${st.name}</strong><small>${st.region} · ${state.completed.includes(i)?"Completed":unlocked?"Unlocked":"🔒 Locked"}</small></div>`;
+      const btn=document.createElement("button");btn.className=unlocked?"secondary":"secondary";btn.textContent=state.completed.includes(i)?"Replay":i===state.stage?"Current":unlocked?"Play":"Locked";btn.disabled=!unlocked;btn.onclick=()=>{state.stage=i;save();render();toast("Now exploring: "+st.name);};row.appendChild(btn);$("stageList").appendChild(row);
+    });
+    $("badges").innerHTML="";
+    badgeDefs.forEach(([medal,name,goal])=>{const item=document.createElement("div");item.className="badge-item"+(hasBadge(name)?" earned":"");item.innerHTML=`<div class="medal">${medal}</div><strong>${name}</strong><small>${hasBadge(name)?"Unlocked":goal}</small>`;$("badges").appendChild(item);});
+    const builtNow=state.built.includes(state.stage);
+    document.querySelectorAll("[data-action]").forEach(btn=>{
+      const action=btn.dataset.action;
+      if(action==="build"){btn.disabled=builtNow;btn.style.opacity=builtNow?".5":"1";btn.querySelector("small").textContent=builtNow?"Well completed!":"Use supplies to finish";}
+      if(action==="scout" && state.scouted.includes(state.stage)){btn.style.borderColor="#8dc7aa";btn.querySelector("small").textContent="Site scouted ✓";}
+    });
+  }
+  function needCheckin(){
+    const t=today();if(state.lastCheckin===t){toast("Daily check-in already complete. Come back tomorrow to grow your streak.");return;}
+    if(state.lastCheckin===yesterday())state.streak+=1;else state.streak=1;
+    state.lastCheckin=t;state.lives=Math.min(state.maxLives,state.lives+1);state.coins+=5;refreshBadges();save();render();toast(`Day ${state.streak} streak! +1 life and 5 tokens.`);
+  }
+  function doScout(){
+    const i=state.stage;
+    if(state.scouted.includes(i)){toast("You already scouted this site.");return;}
+    state.scouted.push(i);state.coins+=5;state.taskCounts[i]=Math.min(stages[i].tasks,(state.taskCounts[i]||0)+1);save();render();
+    modal("Site scouted!","You checked the terrain and community needs. Real water projects require local expertise, hydrogeological assessment, and ongoing maintenance.",[{label:"Continue",className:"primary"}],"FIELD REPORT");
+  }
+  function collect(){
+    const before=state.collectCount;state.wood+=1;state.stone+=1;if(state.collectCount%2===0)state.tools+=1;state.collectCount++;state.coins+=3;
+    state.taskCounts[state.stage]=Math.min(stages[state.stage].tasks,(state.taskCounts[state.stage]||0)+1);refreshBadges();save();render();toast("Supplies collected! +1 timber, +1 stone, "+(before%2===0?"+1 tool, ":"")+"+3 tokens.");
+  }
+  const questions=[
+    {q:"What helps make a community water project sustainable?",opts:["Plan for maintenance and local needs","Build quickly and leave","Use every resource at once"],correct:0,why:"Long-term maintenance, local participation, and appropriate planning matter."},
+    {q:"What does safe water access support?",opts:["Health, time, and opportunity","Only game scores","Nothing beyond the well"],correct:0,why:"Reliable clean water can support health, education, livelihoods, and daily life."},
+    {q:"What should happen before choosing a well location?",opts:["Assess local conditions and water availability","Pick a random spot","Start digging without advice"],correct:0,why:"Real projects need qualified local assessment and technical expertise."},
+    {q:"Does finishing a virtual well fund a real one?",opts:["No, only a real verified donation or funding commitment can do that","Yes, automatically","Only if I earn enough tokens"],correct:0,why:"Game progress is separate from real-world donations and project funding."}
+  ];
+  function quiz(){
+    const q=questions[(state.stage+state.correctQuizzes)%questions.length];
+    const extra=`<div style="display:grid;gap:8px;margin-top:14px">${q.opts.map((o,i)=>`<button class="secondary quiz-option" data-option="${i}" style="text-align:left">${String.fromCharCode(65+i)}. ${o}</button>`).join("")}</div>`;
+    modal("Water knowledge challenge",q.q,[],"QUICK QUIZ",extra);
+    document.querySelectorAll(".quiz-option").forEach(btn=>btn.onclick=()=>{
+      const correct=Number(btn.dataset.option)===q.correct;
+      closeModal();
+      if(correct){state.correctQuizzes++;state.coins+=5;state.taskCounts[state.stage]=Math.min(stages[state.stage].tasks,(state.taskCounts[state.stage]||0)+1);refreshBadges();save();render();modal("Correct! 💧",q.why,[{label:"Keep going",className:"primary"}],"WATER WISE");}
+      else{state.lives=Math.max(0,state.lives-1);save();render();modal("Not quite — try again next time",q.why,[{label:"Continue",className:"primary"}],"LEARNING MOMENT");}
+    });
+  }
+  function build(){
+    const s=current(),n=s.need;
+    if(state.built.includes(state.stage)){toast("This virtual well is already built.");return;}
+    const missing=[];if(state.wood<n.wood)missing.push(`${n.wood-state.wood} timber`);if(state.stone<n.stone)missing.push(`${n.stone-state.stone} stone`);if(state.tools<n.tools)missing.push(`${n.tools-state.tools} tools`);
+    if(!state.scouted.includes(state.stage)){modal("Scout the site first","A thoughtful project starts with understanding the location and community needs.",[{label:"Scout now",className:"primary",run:doScout},{label:"Later"}]);return;}
+    if(missing.length){modal("More supplies needed","For this stage, gather: "+missing.join(", ")+". Use Collect Supplies and return when your pack is ready.",[{label:"Collect supplies",className:"primary",run:collect},{label:"Not now"}]);return;}
+    state.wood-=n.wood;state.stone-=n.stone;state.tools-=n.tools;state.built.push(state.stage);state.coins+=15;state.taskCounts[state.stage]=s.tasks;refreshBadges();save();render();
+    modal("Virtual well completed! 🥳","You finished the "+s.name+" project and earned 15 adventure tokens. This is a game achievement only; it does not mean a real well was built or funded.",[{label:"Celebrate",className:"primary",run:()=>{if(!state.completed.includes(state.stage)){state.completed.push(state.stage);}if(state.stage<stages.length-1){const next=state.stage+1;state.stage=next;save();render();toast("Stage complete! New region unlocked.");}else{save();render();toast("You completed the Well Builder adventure!");}}}],"STAGE COMPLETE");
+  }
+  function action(name){
+    if(state.lives<=0){modal("You need a rest 💙","You are out of lives. Complete your daily check-in for a chance to regain one life, then return to your mission.",[{label:"Daily check-in",className:"primary",run:needCheckin},{label:"Close"}]);return;}
+    if(name==="scout")doScout();if(name==="collect")collect();if(name==="quiz")quiz();if(name==="build")build();
+  }
+  document.querySelectorAll("[data-action]").forEach(btn=>btn.addEventListener("click",()=>action(btn.dataset.action)));
+  $("modalBack").addEventListener("click",e=>{if(e.target===$("modalBack"))closeModal();});
+  $("donateBtn").addEventListener("click",()=>modal("Optional real-world donation","You can explore charity: water's official donation options in a new tab. This prototype does not collect payment, and virtual tokens or badges are not donations.",[{label:"Open charity: water",className:"gold",run:()=>window.open("https://www.charitywater.org/donate","_blank","noopener,noreferrer")},{label:"Cancel"}],"REAL-WORLD GIVING"));
+  $("impactBtn").addEventListener("click",()=>modal("Game progress ≠ real-world impact","Well Builder is an educational game concept. Finishing a level, earning tokens, or unlocking badges does not fund a real water project. Real impact only comes from verified donations and funded projects. Learn more on charity: water's official website.",[{label:"Visit charity: water",className:"primary",run:()=>window.open("https://www.charitywater.org/","_blank","noopener,noreferrer")},{label:"Got it"}],"TRANSPARENCY"));
+  $("resetBtn").addEventListener("click",()=>modal("Reset your game?","This clears the saved progress in this browser, including lives, streak, supplies, completed stages, and badges.",[{label:"Reset progress",className:"danger",run:()=>{state=fresh();save();render();toast("Game reset. Your adventure starts again!");}},{label:"Keep playing"}],"RESET"));
+  // Daily check-in is available by clicking the streak stat.
+  $("streak").parentElement.parentElement.style.cursor="pointer";
+  $("streak").parentElement.parentElement.title="Click to check in for today";
+  $("streak").parentElement.parentElement.addEventListener("click",needCheckin);
+  render();
+})();
+</script>
+</body>
+</html>
